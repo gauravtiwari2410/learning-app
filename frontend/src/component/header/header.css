@@ -1,0 +1,75 @@
+nav {
+    display: flex;
+    width: 100%;
+    padding: 10px 20px; /* Consolidated padding for a cleaner look */
+    background-color: rgba(10, 77, 119, 0.897);
+    justify-content: flex-start;
+    align-items: center; /* Ensure vertical alignment for items */
+    position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0; /* Aligns the navbar to the top edge of the viewport */
+    left: 0; /* Aligns the navbar to the left edge of the viewport */
+    z-index: 1000; /* Ensures the navbar stays above other content */
+}
+
+body {
+    padding-top: 80px; /* Adds space at the top to prevent content from being hidden under the navbar */
+}
+
+.image {
+    height: 80px; /* Adjusted for a more balanced look */
+    width: auto; /* Adjust for automatic width based on the aspect ratio */
+    margin-right: 20px; /* Reduced margin for tighter layout */
+}
+
+
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take up remaining space */
+    margin: 0 40px; /* Adjusted for consistency */
+    padding: 0; /* Removed padding to align items properly */
+    gap: 15px; /* Adjust gap for visual spacing */
+}
+
+#total {
+    font-size: 16px; /* Corrected font-size property */
+    background-color: #000;
+    padding: 5px 5px; /* Added padding for better visibility */
+    border-radius: 5px; /* Optional: adds rounded corners */
+}
+/* Updated this selector to target <a> elements for black text */
+.nav-menu li a {
+    color:  white; /* Sets text color to black */
+    font-size: 20px;
+    text-decoration: none; /* Removes underline from links */
+}
+
+.nav-menu li {
+    color: #000;
+    font-size: 16px; /* Standard font size for navigation */
+}
+
+/* Styling for buttons */
+.nav-menu li button {
+    padding: 10px 15px; /* Add padding to buttons */
+    border: none;
+    background-color: #ff5722; /* Example button color, adjust as needed */
+    color: white;
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    border-radius: 5px; /* Rounded corners for buttons */
+}
+.nav-menu li button:hover {
+    background-color: #e64a19; /* Darker shade on hover for better interaction */
+}
+
+.nav-menu li a, .nav-menu li button {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-menu li a .svg-inline--fa, .nav-menu li button .svg-inline--fa {
+    margin-right: 8px;
+  }
+  

@@ -1,0 +1,20 @@
+.about {
+  margin: 0 auto; /* Centers the content */
+  max-width: 800px; /* Sets a max-width for readability */
+  padding: 20px; /* Adds padding around the text */
+  font-family: 'Arial', sans-serif; /* Use a web-safe font or include a font family */
+  margin-bottom: 60px;
+}
+
+.about-heading {
+  text-align: center; /* Centers the heading */
+  margin-bottom: 20px; /* Adds space below the heading */
+  font-size: 24px; /* Larger font size for the heading */
+  color: #007BFF; /* A color that stands out */
+}
+
+.about-text {
+  text-align: justify; /* Justifies the text for better readability */
+  margin-bottom: 20px; /* Adds space between paragraphs */
+  line-height: 1.6; /* Improves line spacing for readability */
+}

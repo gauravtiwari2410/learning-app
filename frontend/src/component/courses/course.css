@@ -1,0 +1,48 @@
+.courses-container {
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.courses-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.courses-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.course-item {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.add-btn, .remove-btn {
+  margin-left: 10px;
+  height: 30px;
+  padding: 0 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white; /* Ensures text color is white for better visibility */
+}
+
+.add-btn {
+  background-color: #4CAF50; /* Green */
+}
+
+.remove-btn {
+  background-color: #f44336; /* Red */
+}
+
+.add-btn:hover, .remove-btn:hover {
+  opacity: 0.8;
+}
