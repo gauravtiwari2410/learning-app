@@ -20,7 +20,7 @@ function Login({loginStatus, loginStatusMethod}) {
     const password = document.getElementById('password').value;
     
     const endpoint = isLoginMode ? '/login' : '/signup';
-    const url = `http://localhost:4000${endpoint}`; // Adjust the port if your backend uses a different one
+    const url = `https://learning-app-7j1c.onrender.com${endpoint}`; // Adjust the port if your backend uses a different one
     
     try {
       const response = await fetch(url, {

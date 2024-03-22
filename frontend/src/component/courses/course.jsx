@@ -5,7 +5,7 @@ export default function Courses({ increment, decrement }) {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/courses')
+    fetch('https://learning-app-7j1c.onrender.com/courses')
       .then(response => response.json())
       .then(data => {
         // Assuming the first object in the array contains the courses array we want
