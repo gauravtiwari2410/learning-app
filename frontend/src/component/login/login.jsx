@@ -1,27 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import "./login.css";
+import { useNavigate } from 'react-router-dom';
+import './login.css';
 
-function Login({loginStatus, loginStatusMethod}) {
-  const [isLoginMode, setIsLoginMode] = useState(true);
-  const [showPopup, setShowPopup] = useState(false);
-  const [popupMessage, setPopupMessage] = useState('');
-  const navigate = useNavigate(); // Initialize navigate function
-
-  const toggleMode = () => {
-    setIsLoginMode(!isLoginMode);
-    setShowPopup(false); // Hide popup when toggling mode
-  };
+function Login({ loginStatusMethod }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    const endpoint = isLoginMode ? '/login' : '/signup';
-    const url = `https://learning-app-7j1c.onrender.com${endpoint}`; // Adjust the port if your backend uses a different one
-    
+    // URL adjusted for login endpoint
+    const url = `https://learning-app-7j1c.onrender.com/login`;
+
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -34,56 +24,31 @@ function Login({loginStatus, loginStatusMethod}) {
       const data = await response.json();
 
       if (response.ok) {
-        if (isLoginMode) {
-          // Navigate to /coursecontent if login is successful
-          loginStatusMethod(true);
-          navigate('/coursecontent');
-        } else {
-          // Handle signup success
-          setPopupMessage('Signup Successful! Please log in.');
-          setShowPopup(true);
-          setTimeout(() => {
-            setShowPopup(false);
-            toggleMode();
-          }, 3000);
-        }
+        loginStatusMethod(true); // Assuming this sets the user as logged in globally
+        navigate('/coursecontent'); // Redirect the user after successful login
       } else {
-        throw new Error(data.message || 'An error occurred');
+        throw new Error(data.message || 'Failed to log in');
       }
     } catch (error) {
-      setPopupMessage(error.message);
-      setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 3000);
+      alert(error.message); // Show error message
     }
   };
 
-  const renderForm = () => (
-    <>
-      <label htmlFor="email">Email:</label>
-      <input type="email" id="email" required />
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password" required />
-      <button type="submit">{isLoginMode ? 'Login' : 'Sign Up'}</button>
-    </>
-  );
-
   return (
     <div className="login-container">
-      <h1>{isLoginMode ? 'Login' : 'Sign Up'}</h1>
-      <form onSubmit={handleSubmit} method='post'>
-        {renderForm()}
-      </form>
-      {showPopup && (
-        <div className="popup" style={{backgroundColor: '#f44336', color: '#fff'}}>
-          {popupMessage}
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit} method="post">
+        <div className="form-control">
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
-      )}
-      <p>
-        {isLoginMode ? "Don't have an account? " : "Already have an account? "}
-        <button onClick={toggleMode} id="toggleModeButton">
-          {isLoginMode ? 'Sign Up Here' : 'Login Here'}
-        </button>
-      </p>
+        <div className="form-control">
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+        </div>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <button onClick={() => navigate('/signup')}>Sign Up</button></p>
+      </form>
     </div>
   );
 }

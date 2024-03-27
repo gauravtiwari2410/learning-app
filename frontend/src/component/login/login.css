@@ -4,66 +4,67 @@
   align-items: center;
   justify-content: center;
   min-height: 70vh;
+  width: 100%;
 }
 
-h1 {
+h2 {
   margin-bottom: 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  max-width: 300px; /* Ensure form width doesn't exceed 300px */
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 label {
   margin-bottom: 5px;
 }
 
-input {
+input,
+button {
   padding: 10px;
+  margin-bottom: 10px; /* Adds space between form elements */
+  width: 100%; /* Ensures input and button fill the form width */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+input {
   border: 1px solid #ccc;
-  margin-bottom: 10px;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   color: white;
-  border: none;
-  cursor: pointer;
-}
-#toggleModeButton{
-  padding: 10px 20px;
-  background-color: #b3cab3; /* Green */
-  color: black;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #45A049; /* Green darkened */
+  background-color: #45A049;
 }
 
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-.popup {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%; /* Full width */
-  padding: 20px 0; /* Padding at top and bottom */
+p {
   text-align: center;
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure it's above other content */
-  transition: all 0.3s ease; /* Smooth transition for popup */
 }
 
+/* Adds styles for the button within <p> to make it look like a link */
+p button {
+  background: none;
+  color: #4CAF50;
+  padding: 0;
+  border: none;
+}
+
+/* Hover effect for the 'button' that looks like a link */
+p button:hover {
+  text-decoration: underline;
+  color: black;
+}

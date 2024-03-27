@@ -6,6 +6,7 @@ import Footer from './component/footer/footer';
 import AboutUs from './component/about/about';
 import Courses from './component/courses/course';
 import Login from './component/login/login';
+import Signup from './component/signup/signup';
 import ShowCart from './component/cart/showCart';
 import ShowDemo from './component/demo/demo';
 import ContactUs from './component/contactUs/contactUs';
@@ -64,6 +65,7 @@ const loginStatusMethodfalse = () => {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/courses" element={<Courses increment={increment} decrement={decrement} />} />
           <Route path="/login" element={<Login loginStatus={loginStatus} loginStatusMethod={loginStatusMethod} />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/showcart" element={<ShowCart courseName={cartItems} increment={increment} decrement={decrement} />} />
           <Route path="/showdemo" element={<ShowDemo />} />
           <Route path="/coursecontent" element={<CourseContent />} />
